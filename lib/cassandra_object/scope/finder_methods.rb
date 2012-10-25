@@ -23,6 +23,12 @@ module CassandraObject
         limit(1).to_a.first
       end
 
+      # Find the last object
+      # TODO: Refactor for speed, this is doing a complete table scan
+      def last
+        all.to_a.last
+      end
+
       private
         def find_one(id)
           if id.blank?
